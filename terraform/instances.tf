@@ -50,7 +50,7 @@ resource "aws_ebs_volume" "ch_data" {
 
   tags = { Name = "${var.project}-${each.value.name}-data" }
 
-  lifecycle { prevent_destroy = true }
+  # lifecycle { prevent_destroy = true }  # uncomment for production
 }
 
 resource "aws_volume_attachment" "ch_data" {

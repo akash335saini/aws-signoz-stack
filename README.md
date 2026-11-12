@@ -43,7 +43,7 @@ Terraform module that deploys a **3-node ClickHouse cluster** (1 shard, 3 replic
 | **Coordination** | Embedded ClickHouse Keeper (3-node Raft) |
 | **Default instance** | `c6a.large` (2 vCPU / 4 GB) |
 | **Default AMI** | Ubuntu 24.04 (`ami-02a9cdd4e98bc3c78`) |
-| **Data volume** | 500 GB gp3, separate from root, `prevent_destroy` |
+| **Data volume** | 100 GB gp3, separate from root, `prevent_destroy` |
 
 ### What gets created
 
@@ -95,7 +95,7 @@ terraform apply -var 'clickhouse_password=<your-password>'
 | `region` | `us-east-1` | AWS region |
 | `instance_type` | `c6a.large` | EC2 instance type |
 | `ami_id` | `ami-02a9cdd4e98bc3c78` | Ubuntu 24.04 AMI (us-east-1) |
-| `data_volume_gb` | `500` | EBS data volume size in GB |
+| `data_volume_gb` | `100` | EBS data volume size in GB |
 | `data_volume_type` | `gp3` | EBS volume type |
 | `data_volume_iops` | `3000` | Provisioned IOPS |
 | `data_volume_throughput` | `125` | Throughput in MB/s (gp3 only) |

@@ -121,7 +121,7 @@ CONF
 cat > "$USERS_DIR/default.xml" <<'CONF'
 <clickhouse>
   <users>
-    <default>
+    <default replace="true">
       <password_sha256_hex>${password_hash}</password_sha256_hex>
       <networks><ip>::/0</ip></networks>
       <profile>default</profile>

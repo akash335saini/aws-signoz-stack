@@ -277,7 +277,3 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://<signoz-ip>:4318  # HTTP
 2. Create a feature branch (`git checkout -b feature/my-change`)
 3. Run `terraform fmt -recursive` and `terraform validate` before committing
 4. Open a pull request
-
-## License
-
-[MIT](LICENSE)

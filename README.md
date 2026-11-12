@@ -228,7 +228,3 @@ schemaMigrator:
 2. Create a feature branch (`git checkout -b feature/my-change`)
 3. Run `make fmt` and `make validate` before committing
 4. Open a pull request
-
-## License
-
-[MIT](LICENSE)

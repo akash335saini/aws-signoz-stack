@@ -87,6 +87,14 @@ variable "data_volume_throughput" {
   default     = 125
 }
 
+# --- SigNoz ---
+
+variable "signoz_instance_type" {
+  description = "EC2 instance type for the SigNoz node"
+  type        = string
+  default     = "t3a.medium"
+}
+
 # --- ClickHouse ---
 
 variable "clickhouse_password" {

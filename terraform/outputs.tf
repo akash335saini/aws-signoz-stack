@@ -16,12 +16,26 @@ output "iam_role_arn" {
   value = aws_iam_role.ch.arn
 }
 
-output "signoz_config" {
-  description = "Connection details for SigNoz"
-  value = {
-    host    = aws_network_interface.ch["0"].private_ip
-    port    = 9000
-    user    = "default"
-    cluster = var.cluster_name
-  }
+output "nlb_dns" {
+  description = "Internal NLB DNS name for ClickHouse"
+  value       = aws_lb.ch.dns_name
+}
+
+output "signoz_url" {
+  description = "SigNoz UI URL"
+  value       = "http://${aws_instance.signoz.private_ip}:8080"
+}
+
+output "signoz_otlp_grpc" {
+  description = "OTLP gRPC endpoint"
+  value       = "${aws_instance.signoz.private_ip}:4317"
+}
+
+output "signoz_otlp_http" {
+  description = "OTLP HTTP endpoint"
+  value       = "${aws_instance.signoz.private_ip}:4318"
+}
+
+output "signoz_instance_id" {
+  value = aws_instance.signoz.id
 }

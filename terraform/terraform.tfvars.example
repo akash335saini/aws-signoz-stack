@@ -8,9 +8,12 @@ subnet_ids = [
 ]
 
 key_name      = "my-keypair"
-instance_type = "m6i.2xlarge"
+instance_type = "m6a.large"   # ClickHouse nodes
 
-data_volume_gb         = 500
+# SigNoz instance
+signoz_instance_type = "t3a.medium"
+
+data_volume_gb         = 100
 data_volume_type       = "gp3"
 data_volume_iops       = 3000
 data_volume_throughput = 125

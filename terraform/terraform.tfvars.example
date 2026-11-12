@@ -1,0 +1,26 @@
+region = "us-east-1"
+
+vpc_id = "vpc-0123456789abcdef0"
+subnet_ids = [
+  "subnet-aaa111",  # us-east-1a
+  "subnet-bbb222",  # us-east-1b
+  "subnet-ccc333",  # us-east-1c
+]
+
+key_name      = "my-keypair"
+instance_type = "m6i.2xlarge"
+
+data_volume_gb         = 500
+data_volume_type       = "gp3"
+data_volume_iops       = 3000
+data_volume_throughput = 125
+
+allowed_cidrs = ["10.0.0.0/16"]
+ssh_cidrs     = ["10.0.0.0/8"]
+
+# Pass via TF_VAR_clickhouse_password or -var flag instead of committing here.
+# clickhouse_password = ""
+
+cluster_name = "cluster"
+project      = "clickhouse"
+env          = "production"

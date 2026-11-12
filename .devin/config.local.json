@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Exec(mkdir)",
+      "Exec(rm)"
+    ]
+  }
+}

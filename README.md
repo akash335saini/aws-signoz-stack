@@ -76,15 +76,6 @@ terraform plan  -var 'clickhouse_password=<your-password>'
 terraform apply -var 'clickhouse_password=<your-password>'
 ```
 
-Or use the Makefile from the repo root:
-
-```bash
-cd aws-signoz-stack
-make init
-make plan    # prompts for clickhouse_password
-make apply
-```
-
 ## Configuration
 
 ### Required Variables
@@ -184,8 +175,8 @@ schemaMigrator:
 
 | Task | How |
 |------|-----|
-| **Scale storage** | Bump `data_volume_gb` in tfvars, `make apply`, then `resize2fs` on each node |
-| **Scale compute** | Change `instance_type`, `make apply` (instances replaced, data volumes persist) |
+| **Scale storage** | Bump `data_volume_gb` in tfvars, `terraform apply`, then `resize2fs` on each node |
+| **Scale compute** | Change `instance_type`, `terraform apply` (instances replaced, data volumes persist) |
 | **Backups** | AWS Backup / DLM on the `*-data` EBS volumes. For consistency: `ALTER TABLE ... FREEZE PARTITION` first |
 | **Monitoring** | Prometheus metrics at `:8123/metrics`. Keeper: `echo mntr \| nc <host> 9181` |
 | **SSH-less access** | `aws ssm start-session --target <instance-id>` (IAM role includes SSM) |
@@ -204,7 +195,6 @@ schemaMigrator:
 
 ```
 .
-├── Makefile
 ├── README.md
 ├── scripts/
 │   └── verify-cluster.sh          # post-deploy smoke test
@@ -225,5 +215,5 @@ schemaMigrator:
 
 1. Fork the repo
 2. Create a feature branch (`git checkout -b feature/my-change`)
-3. Run `make fmt` and `make validate` before committing
+3. Run `terraform fmt -recursive` and `terraform validate` before committing
 4. Open a pull request

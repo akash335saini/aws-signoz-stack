@@ -48,7 +48,7 @@ variable "ssh_cidrs" {
 variable "instance_type" {
   description = "EC2 instance type for ClickHouse nodes"
   type        = string
-  default     = "m6i.2xlarge"
+  default     = "c6a.large"
 }
 
 variable "key_name" {
@@ -67,7 +67,7 @@ variable "ami_id" {
 variable "data_volume_gb" {
   description = "Data volume size in GB"
   type        = number
-  default     = 500
+  default     = 100
 }
 
 variable "data_volume_type" {

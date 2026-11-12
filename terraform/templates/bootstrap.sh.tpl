@@ -36,7 +36,7 @@ apt-get update -qq
 apt-get install -y -qq apt-transport-https ca-certificates curl gnupg netcat-openbsd
 
 curl -fsSL 'https://packages.clickhouse.com/rpm/lts/repodata/repomd.xml.key' \
-  | gpg --dearmor -o /usr/share/keyrings/clickhouse-keyring.gpg
+  | gpg --dearmor --yes -o /usr/share/keyrings/clickhouse-keyring.gpg
 
 echo "deb [signed-by=/usr/share/keyrings/clickhouse-keyring.gpg] https://packages.clickhouse.com/deb lts main" \
   > /etc/apt/sources.list.d/clickhouse.list
@@ -51,10 +51,6 @@ chown -R clickhouse:clickhouse "$DATA_DIR"
 
 ###
 ### 3. Cluster config
-###
-### All ${...} references below are resolved by Terraform's templatefile()
-### before this script reaches the instance. The single-quoted heredocs
-### prevent bash from attempting any expansion on the already-rendered XML.
 ###
 
 mkdir -p "$CONF_DIR" "$USERS_DIR"

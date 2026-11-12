@@ -41,7 +41,7 @@ Terraform module that deploys a **3-node ClickHouse cluster** (1 shard, 3 replic
 | **Topology** | 1 shard, 3 replicas |
 | **Cluster name** | `cluster` (SigNoz requirement) |
 | **Coordination** | Embedded ClickHouse Keeper (3-node Raft) |
-| **Default instance** | `m6i.2xlarge` (8 vCPU / 32 GB) |
+| **Default instance** | `c6a.large` (2 vCPU / 4 GB) |
 | **Default AMI** | Ubuntu 24.04 (`ami-02a9cdd4e98bc3c78`) |
 | **Data volume** | 500 GB gp3, separate from root, `prevent_destroy` |
 
@@ -102,7 +102,7 @@ make apply
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `region` | `us-east-1` | AWS region |
-| `instance_type` | `m6i.2xlarge` | EC2 instance type |
+| `instance_type` | `c6a.large` | EC2 instance type |
 | `ami_id` | `ami-02a9cdd4e98bc3c78` | Ubuntu 24.04 AMI (us-east-1) |
 | `data_volume_gb` | `500` | EBS data volume size in GB |
 | `data_volume_type` | `gp3` | EBS volume type |
@@ -204,7 +204,6 @@ schemaMigrator:
 
 ```
 .
-├── LICENSE
 ├── Makefile
 ├── README.md
 ├── scripts/

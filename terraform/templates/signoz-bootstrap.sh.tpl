@@ -1,5 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
+export HOME="${HOME:-/root}"
 exec > >(tee /var/log/signoz-bootstrap.log) 2>&1
 
 ###

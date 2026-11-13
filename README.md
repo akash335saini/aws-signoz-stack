@@ -85,7 +85,7 @@ Terraform module that deploys a **3-node ClickHouse cluster** with an **internal
 ## Quick Start
 
 ```bash
-git clone https://github.com/<your-org>/aws-signoz-stack.git
+git clone https://github.com/akash335saini/aws-signoz-stack.git
 cd aws-signoz-stack/terraform
 
 cp terraform.tfvars.example terraform.tfvars

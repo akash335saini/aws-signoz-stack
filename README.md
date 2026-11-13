@@ -240,7 +240,7 @@ export OTEL_EXPORTER_OTLP_ENDPOINT=http://<signoz-ip>:4318  # HTTP
 
 **Internal NLB for ClickHouse HA** -- SigNoz connects to the NLB DNS name instead of individual node IPs. The NLB health-checks each CH node on port 8123 (`/ping`) and stops routing to unhealthy targets. If a CH node goes down, SigNoz automatically uses the remaining healthy nodes with zero config changes.
 
-**Separate EBS volumes** -- Data volumes are independent resources with `prevent_destroy` (commented out for POC). Instance replacement (AMI update, type change) doesn't touch data. The bootstrap waits up to 2 minutes for the device to appear after boot.
+**Separate EBS volumes** -- Data volumes are independent resources with `prevent_destroy`. Instance replacement (AMI update, type change) doesn't touch data. The bootstrap waits up to 2 minutes for the device to appear after boot.
 
 **Password hashing in Terraform** -- `sha256()` runs in Terraform; only the hash reaches the CH instances. No cleartext password in shell commands or `/proc`.
 
